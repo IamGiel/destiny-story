@@ -45,6 +45,10 @@ class ViewController: UIViewController {
         
         // TODO Step 3: Set the text for the storyTextView, topButton, bottomButton, and to T1_Story, T1_Ans1, and T1_Ans2
         
+        storyTextView.text = story1;
+        topButton.setTitle("Destiny One", for: .normal)
+        bottomButton.setTitle("Destiny Two", for: .normal)
+        
     }
 
     
@@ -52,6 +56,13 @@ class ViewController: UIViewController {
     @IBAction func buttonPressed(_ sender: UIButton) {
     
         // TODO Step 4: Write an IF-Statement to update the views
+        if(sender.tag == 1) {
+            print("tag 1")
+        }
+        
+        else if(sender.tag == 2){
+            print("tag 2")
+        }
                 
         // TODO Step 6: Modify the IF-Statement to complete the story
         
