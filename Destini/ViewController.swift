@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var storyIndex: Int = 1;
 
     // Our strings
     let story1 = "Your car has blown a tire on a winding road in the middle of nowhere with no cell phone reception. You decide to hitchhike. A rusty pickup truck rumbles to a stop next to you. A man with a wide brimmed hat with soulless eyes opens the passenger door for you and asks: \"Need a ride, boy?\"."
@@ -46,27 +48,65 @@ class ViewController: UIViewController {
         // TODO Step 3: Set the text for the storyTextView, topButton, bottomButton, and to T1_Story, T1_Ans1, and T1_Ans2
         
         storyTextView.text = story1;
-        topButton.setTitle("Destiny One", for: .normal)
-        bottomButton.setTitle("Destiny Two", for: .normal)
+        topButton.setTitle("\(answer1a)", for: .normal)
+        bottomButton.setTitle("\(answer1b)", for: .normal)
+        print("storyIndex = ", storyIndex);
         
     }
 
     
     // User presses one of the buttons
     @IBAction func buttonPressed(_ sender: UIButton) {
-    
-        // TODO Step 4: Write an IF-Statement to update the views
-        if(sender.tag == 1) {
-            print("tag 1")
-        }
         
-        else if(sender.tag == 2){
-            print("tag 2")
+        if(storyIndex == 1){
+            if(sender.tag == 1){
+                storyThree();
+            }
+            if(sender.tag == 2){
+                //  if user selects story 1b change story text to story2
+                storyTwo();
+            }
         }
-                
-        // TODO Step 6: Modify the IF-Statement to complete the story
+        else if(storyIndex == 3 && sender.tag == 1){ // choosing 3a
+                storySix();
+            }
+        else if(storyIndex == 3 && sender.tag == 2) { // choosing 3b
+                storyFive();
+            }
         
+        
+        print("storyIndex = ", storyIndex);
+        
+    }
     
+    func storyThree(){
+        storyTextView.text = story3;
+        topButton.setTitle("\(answer3a)", for: .normal)
+        bottomButton.setTitle("\(answer3b)", for: .normal)
+        storyIndex = 3;
+    }
+    
+    func storyTwo(){
+        storyTextView.text = story2;
+        //  set the buttons to answer3a and answer3b
+        topButton.setTitle("\(answer2a)", for: .normal)
+        bottomButton.setTitle("\(answer2b)", for: .normal)
+        storyIndex = 2;
+    }
+    
+    func storyFive(){
+        storyTextView.text = story5;
+        //  set the buttons to answer3a and answer3b
+        topButton.isHidden = true;
+        bottomButton.isHidden = true;
+        storyIndex = 5;
+    }
+    func storySix(){
+        storyTextView.text = story6;
+        //  set the buttons to answer3a and answer3b
+        topButton.isHidden = true;
+        bottomButton.isHidden = true;
+        storyIndex = 6;
     }
     
 
