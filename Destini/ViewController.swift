@@ -47,11 +47,7 @@ class ViewController: UIViewController {
         
         // TODO Step 3: Set the text for the storyTextView, topButton, bottomButton, and to T1_Story, T1_Ans1, and T1_Ans2
         
-        storyTextView.text = story1;
-        topButton.setTitle("\(answer1a)", for: .normal)
-        bottomButton.setTitle("\(answer1b)", for: .normal)
-        print("storyIndex = ", storyIndex);
-        
+        begin();
     }
 
     
@@ -86,6 +82,14 @@ class ViewController: UIViewController {
         print("storyIndex = ", storyIndex);
         
     }
+    func begin(){
+        topButton.isHidden = false;
+        bottomButton.isHidden = false;
+        storyTextView.text = story1;
+        topButton.setTitle("\(answer1a)", for: .normal)
+        bottomButton.setTitle("\(answer1b)", for: .normal)
+        print("storyIndex = ", storyIndex);
+    }
     
     func storyThree(){
         storyTextView.text = story3;
@@ -109,6 +113,7 @@ class ViewController: UIViewController {
         bottomButton.isHidden = true;
         storyIndex = 4;
         print("end of story at ending version 4")
+        restart()
     }
     
     func storyFive(){
@@ -118,6 +123,7 @@ class ViewController: UIViewController {
         bottomButton.isHidden = true;
         storyIndex = 5;
          print("end of story at ending version 5")
+        restart()
     }
     func storySix(){
         storyTextView.text = story6;
@@ -126,10 +132,21 @@ class ViewController: UIViewController {
         bottomButton.isHidden = true;
         storyIndex = 6;
          print("end of story at ending version 6")
+        restart()
     }
     
-
-
-
+    func restart(){
+        let alert = UIAlertController(title: "Start Over", message: "Dint like how it panned out?, Or just see what happens if?", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Restart", style: .default, handler: nil))
+        // alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired number of seconds.
+            // Code you want to be delayed
+             self.present(alert, animated: true)
+             self.storyIndex = 1;
+            self.begin();
+            
+        }
+        
+    }
 }
 
