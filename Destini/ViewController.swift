@@ -67,6 +67,14 @@ class ViewController: UIViewController {
                 storyTwo();
             }
         }
+        else if(storyIndex == 2 && sender.tag == 1){ // choosing 2a
+             storyThree();
+        }
+        else if(storyIndex == 2 && sender.tag == 2){ // choosing 2b
+             storyFour();
+        }
+            
+            
         else if(storyIndex == 3 && sender.tag == 1){ // choosing 3a
                 storySix();
             }
@@ -94,12 +102,22 @@ class ViewController: UIViewController {
         storyIndex = 2;
     }
     
+    func storyFour(){
+        storyTextView.text = story4;
+        //  set the buttons to answer3a and answer3b
+        topButton.isHidden = true;
+        bottomButton.isHidden = true;
+        storyIndex = 4;
+        print("end of story at ending version 4")
+    }
+    
     func storyFive(){
         storyTextView.text = story5;
         //  set the buttons to answer3a and answer3b
         topButton.isHidden = true;
         bottomButton.isHidden = true;
         storyIndex = 5;
+         print("end of story at ending version 5")
     }
     func storySix(){
         storyTextView.text = story6;
@@ -107,6 +125,7 @@ class ViewController: UIViewController {
         topButton.isHidden = true;
         bottomButton.isHidden = true;
         storyIndex = 6;
+         print("end of story at ending version 6")
     }
     
 
